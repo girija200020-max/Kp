@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KP Signal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { text-align:center; font-family:sans-serif; margin-top:80px; }
+button { padding:15px 30px; font-size:20px; }
+.result { font-size:30px; margin-top:20px; }
+</style>
+</head>
 
+<body>
+
+<h1>KP Daily Signal</h1>
+
+<button onclick="getSignal()">GET SIGNAL</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function getSignal() {
+    let now = new Date();
+    let value = Math.floor((now.getTime()/10000000) % 9);
+
+    let signal = "⚪ WAIT";
+
+    if (value == 6 || value == 1) signal = "🟢 YES";
+    else if (value == 0 || value == 7) signal = "🔴 NO";
+
+    document.getElementById("result").innerHTML = signal;
+}
+</script>
+
+</body>
+</html>
